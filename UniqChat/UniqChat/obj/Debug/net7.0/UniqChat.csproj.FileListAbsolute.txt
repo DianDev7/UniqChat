@@ -30,3 +30,8 @@ C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\obj\Debug\net7.0\re
 C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\obj\Debug\net7.0\UniqChat.pdb
 C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\obj\Debug\net7.0\UniqChat.genruntimeconfig.cache
 C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\obj\Debug\net7.0\ref\UniqChat.dll
+C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\Private\Documents\GitHub\UniqChat\UniqChat\UniqChat\obj\Debug\net7.0\UniqChat.csproj.CopyComplete

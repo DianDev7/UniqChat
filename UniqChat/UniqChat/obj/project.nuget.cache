@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "OEAYQJA6gZo3NOWikBY944Cku9g7B+Lpn2Q7y3/24vcp+wsjDTfl7+NxlPAO1YfJ5BaLJLEkVfSjLV9yo3pPqA==",
+  "dgSpecHash": "8o17XXa8lUSL4/O+V3RwO7nNxKxzQ4jI8rQnN2DdoABuNeMZFr2hu8K58zqyqjcKYk0mPwfPTRCP8uiBpAGZ/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Private\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\7.0.9\\microsoft.aspnetcore.connections.abstractions.7.0.9.nupkg.sha512",
+    "C:\\Users\\Private\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\7.0.9\\microsoft.aspnetcore.signalr.common.7.0.9.nupkg.sha512",
+    "C:\\Users\\Private\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Private\\.nuget\\packages\\microsoft.extensions.features\\7.0.9\\microsoft.extensions.features.7.0.9.nupkg.sha512",
+    "C:\\Users\\Private\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "C:\\Users\\Private\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\Private\\.nuget\\packages\\system.io.pipelines\\7.0.0\\system.io.pipelines.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

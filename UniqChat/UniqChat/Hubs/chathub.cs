@@ -6,7 +6,17 @@ namespace SignalRChat.Hubs
     {
         public async Task SendMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message,DateTime.Now);
+            await Clients.All.SendAsync("ReceiveMessage", user, message, DateTime.Now);
         }
+
+        public async Task SendToClient(string user, string ReceiverId, string message)
+        {
+            await Clients.Client(ReceiverId).SendAsync("ReceiveMessage", user, message, DateTime.Now);
+        }
+
+
+        public string GetConnectionId() => Context.ConnectionId;
     }
+
+ 
 }
