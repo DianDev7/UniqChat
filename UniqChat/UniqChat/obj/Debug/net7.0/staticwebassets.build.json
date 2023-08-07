@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LXwYcHUqmbidjEzs6zKHWKxFTnBWZeseQrKS87hTOew=",
+  "Hash": "wG7dxX9RfvpSo2ENfb1Z3P2schvNHhHHD9+DyrrZHC0=",
   "Source": "UniqChat",
   "BasePath": "_content/UniqChat",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\wwwroot\\images\\logo.png",
+      "SourceId": "UniqChat",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\wwwroot\\",
+      "BasePath": "_content/UniqChat",
+      "RelativePath": "images/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
       "Identity": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\wwwroot\\js\\chat.js",

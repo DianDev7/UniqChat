@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<form id="registrationForm">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username">
+    </div>
+
+    <div class="form-group">
+        <label for="RegPassword">Password:</label>
+        <input type="password" class="form-control" id="RegPassword" name="password">
+    </div>
+
+    <div class="form-group">
+        <label for="RegRePassword">Re-Enter Password:</label>
+        <input type="password" class="form-control" id="RegRePassword" name="rePassword">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="button" class="btn btn-secondary" onclick="redirectToLogin()">Back</button>
+</form>
+
+@section Scripts {
+    <script>
+        function redirectToLogin() {
+            window.location.href = '/Login/Index';
+        }
+
+        // Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            registerUser();
+        });
+
+        function registerUser() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('RegPassword').value;
+            var rePassword = document.getElementById('RegRePassword').value;
+
+            if (password !== rePassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            var user = {
+                username: username,
+                password: password
+            };
+
+            // Send the registration data to the API endpoint
+            fetch('/api/Auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Registration successful
+                    console.log('User registered:', data);
+                    alert('Registration successful! Please login with your new account.');
+                    window.location.href = '/Login/Index'; // Redirect to login page
+                })
+                .catch(error => {
+                    console.error('Registration failed:', error);
+                    alert('Registration failed. Please try again.');
+                });
+        }
+    </script>
+}

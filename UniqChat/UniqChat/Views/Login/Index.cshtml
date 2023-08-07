@@ -1,0 +1,32 @@
+﻿@model UniqChat.Models.Users
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+<form method="post" action="/Login/Login">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" asp-for="Username">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" asp-for="PasswordHash">
+    </div>
+
+    <button type="submit" class="btn btn-primary" onclick="login()">Login</button>
+    <button type="button" class="btn btn-secondary" onclick="redirectToRegister()">Register</button>
+
+    <!-- Display any validation errors -->
+    <div asp-validation-summary="All" class="text-danger"></div>
+</form>
+
+@section Scripts {
+    <script>
+            function redirectToRegister() {
+            console.log("Redirecting to Register page...");
+            window.location.href = '/Register/Index';
+        }
+    </script>
+}

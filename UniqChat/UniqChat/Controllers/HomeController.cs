@@ -13,6 +13,11 @@ namespace UniqChat.Controllers
             _logger = logger;
         }
 
+        public IActionResult SplashScreen()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -22,6 +27,7 @@ namespace UniqChat.Controllers
         {
             return View();
         }
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

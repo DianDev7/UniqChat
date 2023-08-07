@@ -1,6 +1,8 @@
-﻿@page
+﻿
+@page
 <div class="container">
-
+    
+    <div class="Header"
     <div class="row">
         <div class="col-3">Connection Id</div>
         <div class="col-6"><span id="connectionId" /></div>
@@ -22,7 +24,7 @@
 
     <div class="row p-1">
         <div class="col-6 text-end">
-            <input type="button" id="SendToClient" value="Send To User" />&nbsp;&nbsp;
+            <input type="button" id="SendToClient" value="Send To User" />
             <input type="button" id="sendButton" value="Send Message" />
         </div>
     </div>
@@ -37,5 +39,6 @@
         </div>
     </div>
 </div>
+
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "SplashScreen";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Splash Screen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="~/images/logo.png" alt="Logo" />
+    <script>
+        setTimeout(function () {
+            window.location.href = '/Login/Index'; // Redirect to the index page
+        }, 4000); // 4000 milliseconds = 4 seconds
+    </script>
+</body>
+</html>

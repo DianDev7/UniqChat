@@ -11,7 +11,7 @@ namespace SignalRChat.Hubs
 
         public async Task SendToClient(string user, string ReceiverId, string message)
         {
-            await Clients.Client(ReceiverId).SendAsync("ReceiveMessage", user, message, DateTime.Now);
+            await Clients.Client(ReceiverId).SendAsync("ReceiveMessage", user, message);
         }
 
 
