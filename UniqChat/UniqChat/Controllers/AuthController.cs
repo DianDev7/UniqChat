@@ -1,17 +1,22 @@
-﻿using BCrypt.Net;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using BCrypt.Net;
 using UniqChat.Data;
 using UniqChat.Models;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace UniqChat.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+   
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -20,7 +25,8 @@ namespace UniqChat.Controllers
             _configuration = configuration;
 
         }
-            
+       
+
         public static Users user = new Users();
         private readonly DatabaseContext _db;
 
@@ -56,20 +62,26 @@ namespace UniqChat.Controllers
         }
     
 
-    [HttpPost("login")]
+    
+        [HttpPost("login")]
         public ActionResult<Users> Login(UsersDto request)
         {
-            if(user.Username != request.Username) { 
-            return BadRequest("User not found");
+            var validUser = _db.Users.FirstOrDefault(u => u.Username == request.Username);
+
+            if (validUser == null)
+            {
+                return BadRequest("User not found");
             }
 
-            if(!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(request.Password, validUser.PasswordHash))
             {
                 return BadRequest("Wrong Password");
             }
-            string token = CreateToken(user);
+
+            string token = CreateToken(validUser);
             return Ok(token);
         }
+
         private string CreateToken(Users user)
         {
             List<Claim> claims = new List<Claim>
