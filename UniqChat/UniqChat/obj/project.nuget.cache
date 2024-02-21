@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xaK0cK+/Rxe74S2/juwjQtPYEuBhb8fUlMNc0Md92YIX8YJR2YKjHOliG9Oip1poPHqO88gJb6nNzh6tClRfXg==",
+  "dgSpecHash": "eeTT9rlA5ogeZBTn4c3OuiqTkw93L8NBvCMRm119M2bM9n8ZONXctRFVK04OEp3xE1VJga4x/gik1zud3xxMZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Desktop\\UniqChatFOUND\\RENAY SEPTEMBER & DIAN HART ITEHA ASSIGNMENT UNIQCHAT 2023\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
