@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "SplashScreen";
 }
 <!DOCTYPE html>
@@ -14,8 +13,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #d1f3c4;
         }
-
         img {
             max-width: 100%;
             height: auto;
@@ -26,8 +25,9 @@
     <img src="~/images/logo.png" alt="Logo" />
     <script>
         setTimeout(function () {
-            window.location.href = '/Auth/Login'; // Redirect to the index page
-        }, 4000); // 4000 milliseconds = 4 seconds
+            window.location.href = '@Url.Action("GoToLogin", "Routes")';
+        },4000); // 4000 milliseconds = 4 seconds
     </script>
+
 </body>
 </html>

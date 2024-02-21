@@ -1,0 +1,3 @@
+//SPECIAL API KEY FOR CHUCK NORRIS API
+const MY_API_KEY = '62a7c4bb3emsh0c24e929ca7b9bcp1df6e8jsn1e4624e7326c';
+export { MY_API_KEY };

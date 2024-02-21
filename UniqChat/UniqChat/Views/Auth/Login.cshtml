@@ -1,32 +1,88 @@
-﻿@model UniqChat.Models.Users
+﻿@model UniqChat.Models.UsersDto
 @{
     ViewData["Title"] = "Login";
 }
-
+<!-- LOGIN PAGE INPUT ELEMENTS-->
 <h1>Login</h1>
-<form method="post" action="/Login/Login">
+<form id="loginForm">
     <div class="form-group">
         <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" asp-for="Username">
+        <input type="text" class="form-control" id="username" asp-for="Username" placeholder="Type Username...">
     </div>
 
     <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" asp-for="PasswordHash">
+        <input type="password" class="form-control" id="password" asp-for="Password" placeholder="Type Password...">
     </div>
 
-    <button type="submit" class="btn btn-primary" onclick="login()">Login</button>
-    <button type="button" class="btn btn-secondary" onclick="redirectToRegister()">Register</button>
-
+    <button type="submit" class="btn btn-primary">Login</button>
+    <a asp-controller="Routes" asp-action="GoToRegister" class="btn btn-secondary">Register</a>
     <!-- Display any validation errors -->
     <div asp-validation-summary="All" class="text-danger"></div>
 </form>
 
+
 @section Scripts {
     <script>
-            function redirectToRegister() {
-            console.log("Redirecting to Register page...");
-            window.location.href = '/Register/Index';
+        
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            login();
+        });
+        function getConnectionId() {
+            var connection = new signalR.HubConnectionBuilder()
+                .withUrl("/chathub")
+                .build();
+            console.log("Connection 1 test");
+            console.log(connection);
+            // Return the Promise chain
+            return connection.start()
+                .then(() => {
+                    var connectionId = connection.connectionId;
+                    
+                    return connectionId;  // Return the connection ID
+                })
+                .catch(error => {
+                    console.error("Error connecting to SignalR:", error);
+                    LogError('Error connecting to SignalR:' + error);
+                    throw error;  // Re-throw the error to continue the error handling chain
+                });
+        }
+        function setCookie(name, value) {
+            var expirationDate = new Date();
+            expirationDate.setDate(expirationDate.getDate() + 1); // Set the cookie to expire in 1 day
+            document.cookie = `${name}=${value}; expires=${expirationDate.toUTCString()}; path=/`;
+        }
+         //LOGIN , SEND DETAILS TO AUTH CONTROLLER
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var user = {
+                Username: username,
+                Password: password
+            };
+            fetch('/api/Auth/Login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => response.json())
+                .then(data => { 
+                    setCookie('jwtToken', data.token);
+                    // fetch success handler, start the SignalR connection
+                    getConnectionId().then(connectionId => {
+                        //  token and connection ID, redirect to the home page
+                        window.location.href = `/Routes/GoToHome?JwtToken=${data.token}&ConnectionId=${connectionId}`;
+                    });
+                })
+                .catch(error => {
+                    console.error('Login failed:', error);
+                    LogError('Error with Login:' + error);
+                    alert('Login failed. Please try again.');
+                });
         }
     </script>
+
 }

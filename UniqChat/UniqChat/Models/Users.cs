@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace UniqChat.Models
 {
+    //USER MODEL
     public class Users
     {
         [Key] public int Id { get; set; }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj": {}
+    "C:\\Users\\admin\\Desktop\\UniqChatFOUND\\RENAY SEPTEMBER & DIAN HART ITEHA ASSIGNMENT UNIQCHAT 2023\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj": {
+    "C:\\Users\\admin\\Desktop\\UniqChatFOUND\\RENAY SEPTEMBER & DIAN HART ITEHA ASSIGNMENT UNIQCHAT 2023\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Desktop\\UniqChatFOUND\\RENAY SEPTEMBER & DIAN HART ITEHA ASSIGNMENT UNIQCHAT 2023\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
         "projectName": "UniqChat",
-        "projectPath": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
-        "packagesPath": "C:\\Users\\Private\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Private\\Documents\\GitHub\\UniqChat\\UniqChat\\UniqChat\\obj\\",
+        "projectPath": "C:\\Users\\admin\\Desktop\\UniqChatFOUND\\RENAY SEPTEMBER & DIAN HART ITEHA ASSIGNMENT UNIQCHAT 2023\\UniqChat\\UniqChat\\UniqChat\\UniqChat.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\Desktop\\UniqChatFOUND\\RENAY SEPTEMBER & DIAN HART ITEHA ASSIGNMENT UNIQCHAT 2023\\UniqChat\\UniqChat\\UniqChat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Private\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,6 +74,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.8, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.32.1, )"
+            },
+            "TinyMCE": {
+              "target": "Package",
+              "version": "[6.5.1, )"
             }
           },
           "imports": [
@@ -95,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

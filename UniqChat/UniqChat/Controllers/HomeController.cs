@@ -12,24 +12,18 @@ namespace UniqChat.Controllers
         {
             _logger = logger;
         }
-
+        //ROUTE TO SPLASHSCREEN
         public IActionResult SplashScreen()
         {
             return View();
         }
-
-
+        //ROUTE TO HOME INDEX PAGE
         public IActionResult Index()
         {
+           
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-       
-
+          
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

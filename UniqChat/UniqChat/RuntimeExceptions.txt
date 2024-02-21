@@ -1,0 +1,6 @@
+[Timestamp: 2023/08/25 16:45:15] - Error Message: Error Code: 
+--------------------------------------------------
+[Timestamp: 2023/08/25 16:47:06] - Error Message: Error Code: 
+--------------------------------------------------
+[Timestamp: 2023/08/25 16:59:16] - Error Message: Error Code: Error with Login:
+--------------------------------------------------

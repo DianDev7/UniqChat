@@ -1,44 +1,229 @@
-﻿
-@page
-<div class="container">
-    
-    <div class="Header"
-    <div class="row">
-        <div class="col-3">Connection Id</div>
-        <div class="col-6"><span id="connectionId" /></div>
-    </div>
+﻿    @page   
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/lib/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+     <style>
+        body {
+             
+                background-position: center;
+                background-size: cover;
+                background-color: rgba(0, 0, 0, 0.5);
+        }
+        .custom-light-green-background {
+            background-color: #d1f3c4; 
+        }
+        #messageInput {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .tox-editor-header {
+            max-width: 300px;
+        }
+        .tox-tinymce-aux {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .tox .tox-tinymce-aux {
+            max-height: 60px;
+            overflow-y: auto;
+        }
+        .tox .tox-toolbar {
+            max-width: 500px !important; 
+        }
+        .tox-toolbar-overlord {
+            max-width: 500px !important; 
+        }
+        .tox-editor-header {
+            max-width: 500px !important; 
+        }
+        div.tox-editor-header {
+            max-width: 500px !important; 
+        }
+        .row.mt-5 {
+            margin-top: 20px; 
+        }
+        .tox-editor-container {
+            max-width: 500px !important;
+        }
+        .tox-editor-container {
+            max-width: 500px !important;
+        }
+        #messageInput_ifr {
+            width: 100%; 
+        }
+        .tox-tinymce-aux {
+            max-width: 300px;
+        }
+    </style>
+    <script type="module">
+        const messageInputConfig = {
+            selector: '#messageInput',inline: true,plugins: ['lists', 'autolink'], 
+            toolbar: ['undo redo bold italic underline forecolor numlist bullist',],
+            menubar: false, 
+        };
+        tinymce.init(messageInputConfig);
+    </script>
+    </head>
+    <body>
 
-    <div class="row p-1">
-        <div class="col-1">User</div>
-        <div class="col-5"><input type="text" id="userInput" /></div>
-    </div>
-    <div class="row p-1">
-        <div class="col-1">Message</div>
-        <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
-    </div>
-
-    <div class="row">
-        <div class="col-2">Receiver Id</div>
-        <div class="col-4"><input type="text" id="ReceiverId" /></div>
-    </div>
-
-    <div class="row p-1">
-        <div class="col-6 text-end">
-            <input type="button" id="SendToClient" value="Send To User" />
-            <input type="button" id="sendButton" value="Send Message" />
+        <div class="modal fade" id="jokeCardModal" tabindex="-1" role="dialog" aria-labelledby="jokeCardModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jokeCardModalLabel">Joke Card</h5>
+                        <button type="button" id="closeCross" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="jokeText"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeOk" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6">
-            <hr />
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
-</div>
+         <div class="row mt-5  bg-light ">
+        <div class="col-md-12">
 
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>
+            <div class="navbar d-flex justify-content-between bg-success">
+                <img src="~/images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+                <span class="text-dark fw-bold">UniqChat</span>
+                <span class="text-dark fw-bold" id="loggedUsername">Logged User</span>
+            </div>
+        </div>
+            <div class="row">
+            <div class="col-md-3 custom-light-green-background ">
+                    <h5 class="text-center">Online Users</h5>
+                    <div class="col-md-12">
+                        <div class="user-list">
+                            <ul id="userList">
+                                <li class="user-item">No Users</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="botbtn d-flex justify-content-center ">
+                    <button class="btn btn-primary col-md-4 " id="sendButton">Broadcast</button>
+                        <button class="btn btn-secondary col-md-4  " id="GlobalChat">Global</button>
+                    <button class="btn btn-primary col-md-4 " id="tellJokeBtn">Joke</button>
+                    </div>
+                </div>
+                <div class="col-md-9 bg-light">
+                    <div class="col-md-12 bg-light">
+                        <h5 class="text-left mt-3" id="selectedUserDisplay"></h5>
+                        <div class="row p-1">
+                            <div class="col-12" style="height: 408px; overflow-y: scroll">
+                                <ul id="messagesList"></ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div id="messageInput" class="tinymce-body col-md-8 bg-light" contenteditable="true"></div>
+                        <button class="btn btn-primary col-md-2" id="SendToClient">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="~/js/ChuckAPI.js"></script>
+        <script src="~/js/signalr/dist/browser/signalr.js"></script>
+        <script src="~/js/chat.js"></script>
+        <script type="module">
+            import { getJoke } from "/js/ChuckAPI.js";
+            // Tell Joke button click event handler
+            document.getElementById('tellJokeBtn').addEventListener('click', async function () {
+                try {
+                    // Call the getJoke function from ChuckAPI.js
+                    const joke = await getJoke();
+                    // Set the joke text in the modal
+                    document.getElementById('jokeText').textContent = joke;
+                    // Show the joke card modal
+                    $('#jokeCardModal').modal('show');
+                } catch (error) {
+                    console.error(error);
+                 LogError('Error fetching and showing joke: ' + error);
+                }
+            });
+            // Close modal event handler
+            document.getElementById('closeOk').addEventListener('click', function () {
+                // Clear the joke text  modal is closed
+                document.getElementById('jokeText').textContent = '';
+                $('#jokeCardModal').modal('hide');
+            });
+            document.getElementById('closeCross').addEventListener('click', function () {
+                // Clear the joke text  modal is closed
+                document.getElementById('jokeText').textContent = '';
+                $('#jokeCardModal').modal('hide');
+            });
+        </script>
+        <script type="module">
+            async function fetchUsername() {
+                try {
+                    const jwtToken = '@ViewBag.JwtToken';
+                    const response = await fetch(`/api/LoggedUserApi/GetLoggedUsername/${jwtToken}`);
+                    const data = await response.json();
+                    return data.username;
+                } catch (error) {
+                    console.error(error);
+                 LogError('Error fetching username for Name Tag: ' + error);
+                    return 'Error fetching username';
+                }
+            }
+            async function updateLoggedUser() {
+                const loggedUsername = await fetchUsername();
+                document.getElementById('loggedUsername').textContent = loggedUsername;
+            }
+            updateLoggedUser();
+        </script>
+        <script type="module">
+            // Event listener for clicking on the global chat button
+            document.getElementById("GlobalChat").addEventListener("click", async function () {
+                clearMessageList();
+                await loadGlobalChatHistory();
+            });
+            async function loadGlobalChatHistory() {
+                try {
+                    const response = await fetch('/api/GlobalChat');
+                    if (response.ok) {
+                        const messages = await response.json();
+                        const messagesList = document.getElementById("messagesList");
+                        messagesList.innerHTML = "";
+                        messages.forEach(message => {
+                            const messageItem = document.createElement("li");
+                            // Format timestamp
+                            const formattedTimestamp = formatTimestamp(message.timestamp);
+                            messageItem.textContent = `${formattedTimestamp}: ${message.senderUsername} sent: ${message.content}`;
+                            messagesList.appendChild(messageItem);
+                        });
+                    } else {
+                        console.error('Failed to fetch global chat history.');
+                    }
+                } catch (error) {
+                LogError('Error fetching global chat history: ' + error);
+                    console.error('Error fetching global chat history:', error);
+                }
+            }
+            //CLEAR MESSAGE LIST BEFORE NEW POPULATION
+            function clearMessageList() {
+                const messagesList = document.getElementById("messagesList");
+                messagesList.innerHTML = "";
+            }
+            //FORMAT TIME
+            function formatTimestamp(timestamp) {
+                const date = new Date(timestamp);
+                const formattedDate = new Intl.DateTimeFormat('en', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                }).format(date);
+                return formattedDate;
+            }
+        </script>
+    </body>
+</html>
