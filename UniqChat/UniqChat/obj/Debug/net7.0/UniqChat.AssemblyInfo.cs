@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UniqChat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db593655753fb46e4c6ccafe22f5c8140f033748")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0946e29e5c785a0ecea52b2daa6b078f5f6d7586")]
 [assembly: System.Reflection.AssemblyProductAttribute("UniqChat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UniqChat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
